@@ -20,24 +20,34 @@ In order to complete these exercises, open [repl.it](https://repl.it/), choose J
    }
    ```
 
+   function each(array, func) {
+     for (var i = 0; i < array.length; i++) {
+       func(array[i]);
+     }
+   }
+
 2. Finish the implementation of `sumSquares` below (using above `each` function):
 
    ```js
    function sumSquares(numbers) {
      var total = 0;
-     // ...
+     each(numbers, function(value) {
+       total = total + Math.pow(value, 2);
+     });
      return total;
    }
    ```
+
+ 
 
 3.  Rewrite `sumCubes` using `each`:
 
     ```js
     function sumCubes(numbers) {
       var total = 0;
-      for (var i = 0; i < numbers.length; i++) {
-        total = total + cube(numbers[i]);
-      }
+      each(numbers, function(value) {
+        total = total + cube(value);
+      });
       return total;
     }
     ```
@@ -45,12 +55,83 @@ In order to complete these exercises, open [repl.it](https://repl.it/), choose J
 3.  Write a function called `product` that calculates the product of an array of
     numbers using a `for` loop; then, refactor it to use `each`.
 
+```js
+    function product(numbers) {
+      var total = 0;
+      for (var i = 0; i < numbers.length; i++) {
+        total = total * numbers[i];
+      }
+      return total;
+    }
+
+```
+
+### refactored ### 
+
+```js
+    function product(numbers) {
+      var total = 0;
+      each(numbers, function(value) {
+        total = total * value;
+      });
+      return total;
+    }
+```
 4.  Write a function called `cubeAll` that cubes each number in an array, and
     returns an array of all the numbers *cubed* using a `for` loop; then,
     refactor it to use `each`.
 
+```js
+    function cubeAll(numbers) {
+      var cubedArray = [];
+      for (var i = 0; i < numbers.length; i++) {
+        cubedArray.push([cube(numbers[i]));
+      }
+      return cubedArray;
+    }
+```
+
+### refactored ###
+
+```js
+
+    function cubeAll(numbers) {
+      var cubedArray = [];
+      each(numbers, function(value) {
+        cubedArray.push(cube(value));
+      });
+      return cubedArray;
+    }
+
+```
 5.  Write a function called `odds` that accepts an array as a parameter and
     returns an array of just the odd numbers.
+
+  ```js
+
+  function odds(numbers) {
+    var oddsArray = [];
+    for (var i = 0; i < numbers.length; i++) {
+      if (i % 2 !== 0);
+      oddsArray.push(i)
+    }
+    return oddsArray;
+  }
+  ```
+
+  ### refactored ###
+
+```js
+  function odds(arr) {
+    var oddsArray = [];
+    each(numbers, function(value) {
+      if (value % 2 !== 0) {
+      oddsArray.push(value);
+    }});
+    return oddsArray
+  }
+
+  ```
 
 ### More Practice
 

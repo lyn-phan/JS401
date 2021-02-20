@@ -1,10 +1,10 @@
-<!-- # Part I: Hoisting
+// <!-- # Part I: Hoisting
 
-*Note: Before getting started on these exercises, please be certain that you've read through the root [README.md](../README.md) file in this repository.*
+// *Note: Before getting started on these exercises, please be certain that you've read through the root [README.md](../README.md) file in this repository.*
 
-In order to complete these exercises, open [repl.it](https://repl.it/), choose JavaScript, and then write your code in the left-hand panel. You can run your code using the "Run" button.
+// In order to complete these exercises, open [repl.it](https://repl.it/), choose JavaScript, and then write your code in the left-hand panel. You can run your code using the "Run" button.
 
-### Two Forms of Functions
+// ### Two Forms of Functions
 
 ```js
 // function declaration
@@ -18,13 +18,13 @@ var square = function(x) {
 };
 ```
 
-## Exercises
+### Exercises ###
 
-### Basic Requirements
+// ### Basic Requirements
 
-#### Rewrite Functions -->
+// #### Rewrite Functions -->
 
-<!-- Rewrite the following *function declarations* using a *function expression*: -->
+// <!-- Rewrite the following *function declarations* using a *function expression*: -->
 
  <!-- ```js -->
  <!-- // 1. -->
@@ -79,9 +79,9 @@ var sumCubes = function(numbers) {
 
 
  ```
-#### Mechanics of Hoisting
+#### Mechanics of Hoisting ####
 
-Type out your best answers to the following questions:
+// Type out your best answers to the following questions:
 
 1. Why does JavaScript output `undefined` instead of throwing an error in the following code?
 
@@ -124,7 +124,8 @@ Type out your best answers to the following questions:
 
   ### There aren't any errors because the function declaration gets hoisted along with the associated value ### 
 
-#### Code Restructuring
+  
+#### Code Restructuring ####
 
 Restructure the following instances of code to work correctly:
 

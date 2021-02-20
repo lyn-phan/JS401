@@ -1,4 +1,4 @@
-# Part I: Hoisting
+<!-- # Part I: Hoisting
 
 *Note: Before getting started on these exercises, please be certain that you've read through the root [README.md](../README.md) file in this repository.*
 
@@ -22,23 +22,38 @@ var square = function(x) {
 
 ### Basic Requirements
 
-#### Rewrite Functions
+#### Rewrite Functions -->
 
-Rewrite the following *function declarations* using a *function expression*:
+<!-- Rewrite the following *function declarations* using a *function expression*: -->
 
- ```js
- // 1.
+ <!-- ```js -->
+ <!-- // 1. -->
  function cube(x) {
    return x * x * x;
  }
+
+var cube = function(x) {
+  return x * x * x;
+}
 
  // 2.
  function fullName(first, last) {
    return first + " " + last;
  }
 
+ var fullName = function(first, last) {
+   return first + " " + last;
+ }
+
  // 3.
  function power(base, exp) {
+   if (exp === 0) {
+     return 1;
+   }
+   return base * power(base, exp - 1);
+ }
+
+ var power = function(base, exp) {
    if (exp === 0) {
      return 1;
    }
@@ -53,6 +68,16 @@ Rewrite the following *function declarations* using a *function expression*:
    }
    return total;
  }
+
+var sumCubes = function(numbers) {
+  var total = 0;
+  for (var i = 0; i < numbers.length; i++) {
+    total = total + cube(numbers[i]);
+  }
+  return total;
+}
+
+
  ```
 #### Mechanics of Hoisting
 
@@ -65,6 +90,7 @@ Type out your best answers to the following questions:
 
   var message = 'Hi there!';
   ```
+ ###  The variable 'message' is hoisted and exists at the time it is console.logged. ###
 
 2. Why does JavaScript throw an error instead of logging `undefined` in the following code?
 
@@ -73,6 +99,7 @@ Type out your best answers to the following questions:
 
     let message = 'Hi there!';
     ```
+### Same as last question: the variable 'message' is hoisted and already exsits at the time it is console.logged. The 'let' variable gives more flexibility rather than throwing an error.
 
 3. Explain precisely what happens when the following code is executed.
 
@@ -83,6 +110,7 @@ Type out your best answers to the following questions:
       return 'Hi there!';
     };
     ```
+    ### There will be an error because function declarations get hoisted, while function expressions do not. ###
 
 4. Why does JavaScript *not* throw any errors when the following code is executed?
 
@@ -93,6 +121,8 @@ Type out your best answers to the following questions:
     return 'Hi there!';
   }
   ```
+
+  ### There aren't any errors because the function declaration gets hoisted along with the associated value ### 
 
 #### Code Restructuring
 
@@ -107,6 +137,14 @@ Restructure the following instances of code to work correctly:
  var values = [10, 20, 30];
  ```
  ```js
+
+### fixed ###
+var values = [10, 20, 30];
+
+for(var i = 0; i < values.length; i++) {
+  console.log(values[i]);
+}
+
  // 2.
  console.log(welcome('Charlie', 'Munger'));
 
@@ -115,4 +153,16 @@ Restructure the following instances of code to work correctly:
  };
 
  var lastLogin = '1/1/1970';
+
  ```
+
+### fixed ###
+
+var lastLogin = '1/1/1970';
+
+console.log(welcome('Charlie', 'Munger'));
+
+function welcome(first, last) {
+  return `Welcome, ${first} ${last}! You last logged in on ${lastLogin}.`
+};
+
